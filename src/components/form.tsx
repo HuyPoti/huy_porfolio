@@ -41,8 +41,9 @@ export function ContactForm() {
         setStatus("Đang gửi...")
 
         const res = await fetch("/api/contact", {
-        method: "POST",
-        body: JSON.stringify(data),
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
         })
 
         if (res.ok) {
