@@ -11,7 +11,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   return (
     <div className="max-w-2xl mx-auto py-10 px-4 bg-white text-black mt-5 px-20">
       <Link href={`/blog`} className="text-blue-500 underline text-sm">
-         Quay lại ←
+         Quay lại ← 
       </Link>
       <h1 className="text-3xl font-bold mb-2">{post.title}</h1>
       <p className="text-sm text-gray-500 mb-6">{post.date}</p>
