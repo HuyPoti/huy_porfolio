@@ -4,7 +4,6 @@ import matter from "gray-matter";
 import { remark } from "remark";
 import rehypeHighlight from "rehype-highlight";
 import remarkRehype from "remark-rehype";
-import remarkToc from "remark-toc";
 import rehypeStringify from "rehype-stringify";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import remarkSlug from "rehype-slug";

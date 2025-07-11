@@ -152,3 +152,15 @@
 .prose h3 {
   @apply text-lg font-bold underline text-black mt-8 mb-4;
 }
+@font-face {
+  font-family: 'Parastoo';
+  src: url('/font/Parastoo-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Parastoo';
+  src: url('/font/Parastoo-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+}

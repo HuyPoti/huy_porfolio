@@ -2,11 +2,8 @@ import { getPostBySlug } from "@/lib/blog"
 import Link from "next/link";
 import { notFound } from "next/navigation"
 
-interface Props {
-  params: { slug: string }
-}
 
-export default async function BlogPostPage({ params }: Props) {
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = await getPostBySlug(slug)
   if (!post) return notFound()

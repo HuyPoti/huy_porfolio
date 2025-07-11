@@ -8,7 +8,7 @@ export default function Home() {
       <h1
         className="text-3xl italic font-[Parastoo] text-center mt-10"
       >
-        "Chỉ cần có cố gắng bạn đã thành công phân nửa rồi!" - Nguyễn Gia Huy
+        &quot;Chỉ cần có cố gắng bạn đã thành công phân nửa rồi&quot; - Nguyễn Gia Huy
       </h1>
       <h1
         className="text-2xl font-bold font-[Parastoo] text-center"
@@ -19,7 +19,7 @@ export default function Home() {
       <h1
         className="text-3xl italic font-[Parastoo] text-center mt-10"
       >
-        "Just try and you are half way there.!" - Nguyen Gia Huy
+        &quot;Just try and you are half way there.!&quot; - Nguyen Gia Huy
       </h1>
       <h1
         className="text-2xl font-bold font-[Parastoo] text-center"

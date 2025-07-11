@@ -1,15 +1,5 @@
 "use client"
 import Image from "next/image"
-import {
-    Dialog,
-    DialogClose,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
