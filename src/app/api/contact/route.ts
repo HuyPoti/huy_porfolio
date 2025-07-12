@@ -27,16 +27,16 @@ export async function POST(req: Request) {
         })
 
         // Gửi cảm ơn
-        await resend.emails.send({
-        from: `Portfolio Contact <onboarding@resend.dev>`,
-        to: email,
-        subject: "Cảm ơn bạn đã liên hệ!",
-        html: `
-            <p>Xin chào ${name},</p>
-            <p>Cảm ơn bạn đã gửi tin nhắn. Tôi sẽ phản hồi sớm nhất có thể.</p>
-            <p>– Huy</p>
-        `,
-        })
+        // await resend.emails.send({
+        // from: `Portfolio Contact <onboarding@resend.dev>`,
+        // to: email,
+        // subject: "Cảm ơn bạn đã liên hệ!",
+        // html: `
+        //     <p>Xin chào ${name},</p>
+        //     <p>Cảm ơn bạn đã gửi tin nhắn. Tôi sẽ phản hồi sớm nhất có thể.</p>
+        //     <p>– Huy</p>
+        // `,
+        // })
 
         return NextResponse.json({ success: true })
     } catch (error) {
