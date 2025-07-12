@@ -17,15 +17,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Alex_Brush} from "next/font/google"
 
-// // Import Google Fonts đúng cách
-const alexBrush = Alex_Brush({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-alex-brush",
-  display: "swap",
-})
 
 export default function Header() {
     const { setTheme } = useTheme();
@@ -33,7 +25,7 @@ export default function Header() {
         <header className="w-full px-4 py-5 shadow-sm sticky top-0 z-50 bg-warning text-warning-foreground">
         <div className="flex items-center justify-between max-w-6xl mx-auto">
             {/* Logo */}
-            <Link href="/" className={`text-warning-logo text-5xl ${alexBrush.variable} font-bold tracking-wide`}>
+            <Link href="/" className="font-logo text-warning-logo text-5xl font-bold tracking-wide">
             Huy Porfolio
             </Link>
 

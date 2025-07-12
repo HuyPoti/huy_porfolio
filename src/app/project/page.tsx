@@ -3,6 +3,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import Link from "next/link";
 
 const TAGS = [
     "NextJs", "Laravel", "Python", "MySql", "AI", "TailwindCss"
@@ -10,25 +11,29 @@ const TAGS = [
 const PROJECTS= [
     {
         name: "Portfolio Website",
-        url: "https://res.cloudinary.com/dspz1pktv/image/upload/v1751870461/porfolio.jpg",
+        image: "https://res.cloudinary.com/dspz1pktv/image/upload/v1751870461/porfolio.jpg",
+        url: "https://github.com/HuyPoti/huy_porfolio",
         desc: "Personal portfolio to introduce all about myself.",
         tags: ["NextJs", "TailwindCss", "Vercel"],
     },
     {
         name: "Viebook",
-        url: "https://res.cloudinary.com/dspz1pktv/image/upload/v1751870635/viebook.jpg",
+        image: "https://res.cloudinary.com/dspz1pktv/image/upload/v1751870635/viebook.jpg",
+        url: "https://github.com/NguyenBaoHuy05/Viebook",
         desc: "Mini Social Network for Vietnamese.",
         tags: ["NextJs", "Laravel", "TailwindCss", "MySql","AI"],
     },
     {
         name: "Hunter",
-        url: "https://res.cloudinary.com/dspz1pktv/image/upload/v1751870520/hunter.jpg",
+        image: "https://res.cloudinary.com/dspz1pktv/image/upload/v1751870520/hunter.jpg",
+        url: "https://github.com/HuyPoti/Hunter",
         desc: "2D survival game with interesting experience",
         tags: ["Python"],
     },
     {
         name: "DroneAI",
-        url: "https://res.cloudinary.com/dspz1pktv/image/upload/v1751870561/droneAI.jpg",
+        image: "https://res.cloudinary.com/dspz1pktv/image/upload/v1751870561/droneAI.jpg",
+        url: "https://github.com/HuyPoti/Drone_Astar",
         desc: "Drone simulation works on 2D model using heuritics",
         tags: ["Python"],
     },
@@ -66,7 +71,7 @@ export default function Project(){
                     {/* Phần hình ảnh: 80% */}
                     <div className="flex-[1] relative w-full">
                         <Image
-                        src= {p.url}
+                        src= {p.image}
                         alt="Ảnh demo"
                         fill
                         className="object-cover rounded-t-xl"
@@ -74,13 +79,20 @@ export default function Project(){
                     </div>
 
                     {/* Phần nút: 20% */}
-                    <div key={p.name} className="bg-white rounded-2xl p-6 flex flex-col">
-                        <h2 className="text-2xl font-bold mb-2">{p.name}</h2>
+                    <div key={p.name} className="bg-white text-black rounded-xl p-5 flex flex-col">
+                        <div className="flex gap-2">
+                            <h2 className="text-2xl font-bold">{p.name}</h2>
+                            <Link href={p.url} target="_blank">
+                                <Button variant="link" className="bg-blue-500 text-lg font-bold">
+                                View
+                                </Button>
+                            </Link>
+                        </div>
                         <p className="text-gray-700 mb-4">{p.desc}</p>
-                        <div className="flex flex-wrap gap-2 mb-4">
-                        {p.tags.map(tag => (
-                            <span key={tag} className="px-3 py-1 bg-gray-100 rounded-full text-sm">{tag}</span>
-                        ))}
+                        <div className="flex flex-wrap gap-2">
+                            {p.tags.map(tag => (
+                                <span key={tag} className="p-3 py-1 bg-gray-100 rounded-full text-sm">{tag}</span>
+                            ))}
                         </div>
                     </div>
                     

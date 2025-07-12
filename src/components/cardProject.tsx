@@ -41,10 +41,10 @@ export function CardProject({items} : CardProjectProps) {
     >
       <CarouselContent>
         {items.map(({name, url, content, technology}) => (
-          <CarouselItem key={name} className="basis-1/2 py-5 rounded-xl">
+          <CarouselItem key={name} className="basis-1/2 py-5 ">
             <div>
-              <Card className="border-0">
-                <CardContent className="aspect-square h-full flex flex-col overflow-hidden p-0">
+              <Card className="border-0 ">
+                <CardContent className="aspect-square h-full flex flex-col overflow-hidden p-0 rounded-lg">
                   
                   {/* Phần hình ảnh: 80% */}
                   <div className="flex-[4] relative w-full">
@@ -57,13 +57,13 @@ export function CardProject({items} : CardProjectProps) {
                   </div>
 
                   {/* Phần nút: 20% */}
-                  <div className="flex-[1] flex items-center justify-center bg-black">
+                  <div className="flex-[1] flex items-center justify-center bg-white border-t-2 border-black" >
                     <div >
                       <Dialog key={name}>
                         <form>
                         <DialogTrigger asChild>
-                            <Button className="flex gap-2 items-center bg-orange-500 hover:bg-orange-800">
-                            <span className="text-base font-medium">{name}</span>
+                            <Button className="flex gap-2 items-center bg-blue-500 hover:bg-blue-800 text-white">
+                            <span className="text-lg font-bold">{name}</span>
                             </Button>
                         </DialogTrigger>
                         <DialogContent className="sm:max-w-[425px]">
