@@ -6,6 +6,7 @@ import { Alex_Brush} from "next/font/google"
 
 // // Import Google Fonts đúng cách
 const alexBrush = Alex_Brush({
+  subsets: ['vietnamese'],
   weight: "400",
   variable: "--font-alex-brush",
   display: "swap",
