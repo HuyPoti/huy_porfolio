@@ -1,37 +1,38 @@
-import * as React from "react"
+"use client";
+import * as React from "react";
 
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel"
-import Image from "next/image"
+} from "@/components/ui/carousel";
+import Image from "next/image";
 import {
-    Dialog,
-    DialogClose,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button"
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 
 interface CardProjectData {
-  url: string
-  name: string,
-  content: string,
-  technology: string
+  url: string;
+  name: string;
+  content: string;
+  technology: string;
 }
 
 interface CardProjectProps {
-  items: CardProjectData[]
+  items: CardProjectData[];
 }
-export function CardProject({items} : CardProjectProps) {
+export function CardProject({ items }: CardProjectProps) {
   return (
     <Carousel
       opts={{
@@ -40,16 +41,15 @@ export function CardProject({items} : CardProjectProps) {
       className="w-full max-w-4xl"
     >
       <CarouselContent>
-        {items.map(({name, url, content, technology}) => (
+        {items.map(({ name, url, content, technology }) => (
           <CarouselItem key={name} className="basis-1/2 py-5 ">
             <div>
               <Card className="border-0 ">
                 <CardContent className="aspect-square h-full flex flex-col overflow-hidden p-0 rounded-lg">
-                  
                   {/* Phần hình ảnh: 80% */}
                   <div className="flex-[4] relative w-full">
                     <Image
-                      src= {url}
+                      src={url}
                       alt="Ảnh demo"
                       fill
                       className="object-cover rounded-t-xl"
@@ -57,45 +57,48 @@ export function CardProject({items} : CardProjectProps) {
                   </div>
 
                   {/* Phần nút: 20% */}
-                  <div className="flex-[1] flex items-center justify-center bg-white border-t-2 border-black" >
-                    <div >
+                  <div className="flex-[1] flex items-center justify-center bg-white border-t-2 border-black">
+                    <div>
                       <Dialog key={name}>
                         <form>
-                        <DialogTrigger asChild>
+                          <DialogTrigger asChild>
                             <Button className="flex gap-2 items-center bg-blue-500 hover:bg-blue-800 text-white">
-                            <span className="text-lg font-bold">{name}</span>
+                              <span className="text-lg font-bold">{name}</span>
                             </Button>
-                        </DialogTrigger>
-                        <DialogContent className="sm:max-w-[425px]">
+                          </DialogTrigger>
+                          <DialogContent className="sm:max-w-[425px]">
                             <DialogHeader>
-                            <DialogTitle className="text-2xl font-bold text-green-500">{name}</DialogTitle>
-                            <DialogDescription>{content}</DialogDescription>
+                              <DialogTitle className="text-2xl font-bold text-green-500">
+                                {name}
+                              </DialogTitle>
+                              <DialogDescription>{content}</DialogDescription>
                             </DialogHeader>
                             <DialogHeader>
-                            <DialogTitle className="text-blue-800">{"Technology"}</DialogTitle>
-                            <DialogDescription>{technology}</DialogDescription>
+                              <DialogTitle className="text-blue-800">
+                                {"Technology"}
+                              </DialogTitle>
+                              <DialogDescription>
+                                {technology}
+                              </DialogDescription>
                             </DialogHeader>
                             <DialogFooter>
-                            <DialogClose asChild>
+                              <DialogClose asChild>
                                 <Button variant="outline">Đóng</Button>
-                            </DialogClose>
+                              </DialogClose>
                             </DialogFooter>
-                        </DialogContent>
+                          </DialogContent>
                         </form>
-                    </Dialog>
+                      </Dialog>
                     </div>
                   </div>
-                  
-
                 </CardContent>
               </Card>
             </div>
           </CarouselItem>
         ))}
-        
       </CarouselContent>
       <CarouselPrevious />
       <CarouselNext />
     </Carousel>
-  )
+  );
 }
