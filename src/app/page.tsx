@@ -31,7 +31,6 @@ import { IoLogoJavascript } from "react-icons/io5";
 import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
 import { VscVscode } from "react-icons/vsc";
 import { DiVisualstudio } from "react-icons/di";
-import { CardProject } from "@/components/cardProject";
 import ProjectList from "@/components/project-list";
 import { getAllPosts } from "@/lib/blog";
 import Link from "next/link";
