@@ -5,13 +5,28 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
-const TAGS = ["NextJs", "Laravel", "Python", "MySql", "AI", "TailwindCss"];
+const TAGS = [
+  "NextJs",
+  "Laravel",
+  "Python",
+  "MySql",
+  "AI",
+  "TailwindCss",
+  "NestJs",
+  "TypeScript",
+  "Cloudinary",
+  "FastApi",
+  "Pinecone",
+  "Angular",
+   ".NET Core"
+];
 const PROJECTS = [
   {
     name: "Portfolio Website",
     image:
       "https://res.cloudinary.com/dspz1pktv/image/upload/v1751870461/porfolio.jpg",
-    url: "https://github.com/HuyPoti/huy_porfolio",
+    githubUrl: "https://github.com/HuyPoti/huy_porfolio",
+    liveDemoUrl: "https://huy-porfolio.vercel.app/",
     desc: "Personal portfolio to introduce all about myself.",
     tags: ["NextJs", "TailwindCss", "Vercel"],
   },
@@ -19,25 +34,47 @@ const PROJECTS = [
     name: "Viebook",
     image:
       "https://res.cloudinary.com/dspz1pktv/image/upload/v1751870635/viebook.jpg",
-    url: "https://github.com/NguyenBaoHuy05/Viebook",
+    githubUrl: "https://github.com/NguyenBaoHuy05/Viebook",
+    liveDemoUrl: "",
     desc: "Mini Social Network for Vietnamese.",
     tags: ["NextJs", "Laravel", "TailwindCss", "MySql", "AI"],
   },
   {
-    name: "Hunter",
+    name: "Flex Style",
     image:
-      "https://res.cloudinary.com/dspz1pktv/image/upload/v1751870520/hunter.jpg",
-    url: "https://github.com/HuyPoti/Hunter",
-    desc: "2D survival game with interesting experience",
-    tags: ["Python"],
+      "https://res.cloudinary.com/dspz1pktv/image/upload/v1780669443/aywwgjvnhncmqu1cptgh.png   ",
+    githubUrl: "https://github.com/khangdepzaivodich/flex-style",
+    liveDemoUrl: "",
+    desc: "Online clothing store with modern and dynamic interface.",
+    tags: ["NextJs", "TailwindCss", "TypeScript", "NestJs", "Cloudinary"],
   },
   {
-    name: "DroneAI",
+    name: "LegalBot VN",
     image:
-      "https://res.cloudinary.com/dspz1pktv/image/upload/v1751870561/droneAI.jpg",
-    url: "https://github.com/HuyPoti/Drone_Astar",
-    desc: "Drone simulation works on 2D model using heuritics",
-    tags: ["Python"],
+      "https://res.cloudinary.com/dspz1pktv/image/upload/v1780666230/yngu64n5shhtrimtqfan.png",
+    githubUrl:
+      "https://github.com/NguyenBaoHuy05/Legal-Consultation-Chatbot-VN",
+    liveDemoUrl: "https://legal-vn.vercel.app/",
+    desc: "AI Chatbot provide legal info in Viet Nam",
+    tags: ["Python", "FastApi", "AI", "Pinecone"],
+  },
+  {
+    name: "Software Architechture",
+    image:
+      "https://res.cloudinary.com/dspz1pktv/image/upload/v1780666982/q4cenqbdnuxa9htwwhwm.png",
+    githubUrl: "https://github.com/HuyPoti/Software-architecture",
+    liveDemoUrl: "https://huylamchovui.vercel.app/",
+    desc: "Project for software architechture subject.",
+    tags: ["Nextjs", "TailwindCss"],
+  },
+  {
+    name: "Flash Ecommerce",
+    image:
+      "https://res.cloudinary.com/dspz1pktv/image/upload/v1780670752/eyu0ckwu6mbf8odv9xvd.png",
+    githubUrl: "https://github.com/HuyPoti/CongNgheWeb",
+    liveDemoUrl: "",
+    desc: "Full-stack e-commerce platform for electronic components and accessories",
+    tags: ["Angular", ".NET Core", "Cloudinary"],
   },
 ];
 
@@ -49,65 +86,77 @@ export default function ProjectList() {
     : PROJECTS;
 
   return (
-    <div className="flex flex-col items-center justify-center gap-10 px-6 py-10 font-[Parastoo]">
-      <h1 className="text-5xl font-bold">Projects</h1>
+    <div className="flex flex-col items-center justify-center gap-10 px-6 py-10 font-[Parastoo] w-full">
+      <h1 className="text-6xl md:text-7xl font-black text-center mb-10 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 tracking-tight font-[Parastoo] drop-shadow-sm">
+        Projects
+      </h1>
+
       {/* Tag filter */}
-      <div className="flex flex-wrap gap-3 mb-8">
+      <div className="flex flex-wrap gap-3 mb-4 justify-center">
         {TAGS.map((tag) => (
           <Button
             key={tag}
             onClick={() => setSelectedTag(tag === selectedTag ? null : tag)}
             className={`
+                px-5 py-2 rounded-full border border-white/20 transition-all duration-300 font-semibold cursor-pointer
                 ${
                   selectedTag === tag
-                    ? "bg-green-500 text-white"
-                    : "bg-gray-100 text-black"
+                    ? "bg-green-500 text-white shadow-lg shadow-green-500/30 scale-105"
+                    : "bg-white/10 dark:bg-black/30 text-warning-foreground hover:bg-white/20"
                 }`}
           >
             {tag}
           </Button>
         ))}
       </div>
+
       {/* Project cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl">
         {filteredProjects.map((p) => (
           <Card
             key={p.name}
-            className="w-[25vw] bg-white rounded-2xl flex flex-col border-0"
+            className="bento-card bg-white/10 dark:bg-black/30 backdrop-blur-md rounded-3xl flex flex-col border border-white/20 dark:border-white/10 shadow-xl overflow-hidden w-full"
           >
-            <CardContent className="aspect-square h-full flex flex-col overflow-hidden p-0">
-              {/* Phần hình ảnh: 80% */}
-              <div className="flex-[1] relative w-full">
+            <CardContent className="flex flex-col overflow-hidden p-0 h-full">
+              {/* Phần hình ảnh */}
+              <div className="relative w-full aspect-video min-h-[220px]">
                 <Image
                   src={p.image}
                   alt="Ảnh demo"
                   fill
-                  className="object-cover rounded-t-xl"
+                  className="object-cover"
                 />
               </div>
 
-              {/* Phần nút: 20% */}
-              <div
-                key={p.name}
-                className="bg-white text-black rounded-xl p-5 flex flex-col"
-              >
-                <div className="flex gap-2">
-                  <h2 className="text-2xl font-bold">{p.name}</h2>
-                  <Link href={p.url} target="_blank">
-                    <Button
-                      variant="link"
-                      className="bg-blue-500 text-lg font-bold"
-                    >
-                      View
-                    </Button>
-                  </Link>
+              {/* Phần thông tin */}
+              <div className="flex-1 p-6 flex flex-col justify-between text-warning-foreground">
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <h2 className="text-3xl font-extrabold text-white">
+                      {p.name}
+                    </h2>
+                    <div className="flex gap-1">
+                      <Link href={p.githubUrl} target="_blank">
+                        <Button className="bg-yellow-600 hover:bg-yellow-700 text-white rounded-full px-6 py-2.5 text-sm font-bold shadow-md shadow-blue-500/20 cursor-pointer">
+                          GitHub
+                        </Button>
+                      </Link>
+                      <Link href={p.liveDemoUrl} target="_blank">
+                        <Button className="bg-green-600 hover:bg-green-700 text-white rounded-full px-6 py-2.5 text-sm font-bold shadow-md shadow-blue-500/20 cursor-pointer">
+                          Live Demo
+                        </Button>
+                      </Link>
+                    </div>
+                  </div>
+                  <p className="opacity-85 text-lg mb-6 leading-relaxed">
+                    {p.desc}
+                  </p>
                 </div>
-                <p className="text-gray-700 mb-4">{p.desc}</p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mt-auto">
                   {p.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="p-3 py-1 bg-gray-100 rounded-full text-sm"
+                      className="px-3.5 py-1.5 bg-white/10 dark:bg-white/5 rounded-full text-xs font-semibold border border-white/10 text-white/95"
                     >
                       {tag}
                     </span>
@@ -118,7 +167,7 @@ export default function ProjectList() {
           </Card>
         ))}
         {filteredProjects.length === 0 && (
-          <div className="col-span-full text-center text-gray-500">
+          <div className="col-span-full text-center text-gray-500 py-10">
             No project found.
           </div>
         )}

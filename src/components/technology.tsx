@@ -95,7 +95,7 @@ const technologyInfo: Record<string, { content: string }> = {
 
 export default function Technology({ items }: TechnologyProps) {
   return (
-    <div className="flex flex-row flex-wrap gap-2">
+    <div className="flex flex-row flex-wrap gap-2.5">
       {items.map(({ icon, name }) => {
         const info = technologyInfo[name] || {
           content: "Chưa có thông tin chi tiết.",
@@ -104,21 +104,21 @@ export default function Technology({ items }: TechnologyProps) {
 
         return (
           <Dialog key={name}>
-            <form>
+            <form onSubmit={(e) => e.preventDefault()}>
               <DialogTrigger asChild>
-                <Button variant="outline" className="flex gap-2 items-center">
-                  <span>{icon}</span>
-                  <span className="text-base font-medium">{name}</span>
+                <Button variant="outline" className="flex gap-2.5 items-center bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 rounded-2xl py-5 px-4 cursor-pointer">
+                  <span className="text-4xl">{icon}</span>
+                  <span className="text-2xl font-semibold">{name}</span>
                 </Button>
               </DialogTrigger>
-              <DialogContent className="sm:max-w-[425px]">
+              <DialogContent className="sm:max-w-[425px] bg-slate-950 border border-white/10 text-white rounded-3xl backdrop-blur-xl">
                 <DialogHeader>
-                  <DialogTitle>{name}</DialogTitle>
-                  <DialogDescription>{info.content}</DialogDescription>
+                  <DialogTitle className="text-2xl font-bold text-cyan-400">{name}</DialogTitle>
+                  <DialogDescription className="text-white/70 text-base leading-relaxed mt-2">{info.content}</DialogDescription>
                 </DialogHeader>
-                <DialogFooter>
+                <DialogFooter className="mt-4">
                   <DialogClose asChild>
-                    <Button variant="outline">Đóng</Button>
+                    <Button variant="outline" className="bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-white/20 rounded-xl cursor-pointer">Đóng</Button>
                   </DialogClose>
                 </DialogFooter>
               </DialogContent>

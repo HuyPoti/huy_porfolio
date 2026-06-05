@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import {
   NavigationMenu,
@@ -8,64 +6,54 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import * as React from "react";
-import { Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
-import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 export default function Header() {
-  const { setTheme } = useTheme();
   return (
-    <header className="w-full px-4 py-5 shadow-sm sticky top-0 z-50 bg-warning text-warning-foreground">
+    <header className="w-full px-4 py-5 sticky top-0 z-50 bg-black/40 border-b border-white/10 backdrop-blur-md text-white shadow-lg">
       <div className="flex items-center justify-between max-w-6xl mx-auto">
         {/* Logo */}
         <Link
           href="/"
-          className="font-logo text-warning-logo text-5xl font-bold tracking-wide"
+          className="font-logo text-[#e2f1ff] text-5xl font-bold tracking-wide hover:text-cyan-400 transition-colors"
         >
           Huy Porfolio
         </Link>
 
         {/* Menu desktop */}
-        <nav className="flex flex-1 justify-center">
+        <nav className="flex flex-1 justify-end">
           <NavigationMenu>
-            <NavigationMenuList className="flex gap-5 font-bold">
+            <NavigationMenuList className="flex gap-8 font-bold text-white/80">
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link href="/#home" className="text-xl transition">
+                  <Link href="/#home" className="text-xl hover:text-white transition-colors duration-300">
                     Home
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link href="/#about" className="text-xl transition">
+                  <Link href="/#about" className="text-xl hover:text-white transition-colors duration-300">
                     About
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link href="/#projects" className="text-xl transition">
+                  <Link href="/#projects" className="text-xl hover:text-white transition-colors duration-300">
                     Project
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link href="/#blog" className="text-xl transition">
+                  <Link href="/#blog" className="text-xl hover:text-white transition-colors duration-300">
                     Blog
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link href="/#contact" className="text-xl transition">
+                  <Link href="/#contact" className="text-xl hover:text-white transition-colors duration-300">
                     Contact
                   </Link>
                 </NavigationMenuLink>
@@ -73,27 +61,6 @@ export default function Header() {
             </NavigationMenuList>
           </NavigationMenu>
         </nav>
-
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline" size="icon">
-              <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
-              <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
-              <span className="sr-only">Toggle theme</span>
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuItem onClick={() => setTheme("light")}>
-              Light
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => setTheme("dark")}>
-              Dark
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => setTheme("system")}>
-              System
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
       </div>
     </header>
   );

@@ -40,17 +40,14 @@ export default function TimelineStudy({ items }: TimelineProps) {
       {items.map((item, idx) => (
         <TimelineItem key={idx}>
           <TimelineSeparator>
-            <TimelineConnector sx={{ bgcolor: "warning.main" }} />
-            <TimelineDot color={item.graduate ? "success" : "primary"}>
-              {item.graduate ? <GraduationCap /> : <BookText />}
+            <TimelineConnector sx={{ bgcolor: "cyan.600" }} />
+            <TimelineDot color={item.graduate ? "success" : "primary"} sx={{ border: "2px solid rgba(255,255,255,0.1)" }}>
+              {item.graduate ? <GraduationCap className="text-white" /> : <BookText className="text-white" />}
             </TimelineDot>
           </TimelineSeparator>
-          <TimelineContent>
-            <div className="font-bold">{item.year}</div>
-            <div>{item.school}</div>
-            <div
-              className={item.graduate ? "text-green-600" : "text-yellow-600"}
-            ></div>
+          <TimelineContent className="pb-6">
+            <div className="font-extrabold text-xl text-white">{item.year}</div>
+            <div className="text-white/80 text-lg font-medium">{item.school}</div>
           </TimelineContent>
         </TimelineItem>
       ))}

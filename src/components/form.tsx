@@ -56,15 +56,15 @@ export function ContactForm() {
 
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 max-w-xl mx-auto my-10 bg-warning p-5 rounded-xl">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="bento-card space-y-6 max-w-xl mx-auto my-10 bg-white/10 dark:bg-black/30 backdrop-blur-md border border-white/20 dark:border-white/10 p-8 rounded-3xl shadow-xl w-full text-warning-foreground">
                 <FormField
                 control={form.control}
                 name="name"
                 render={({ field }) => (
                     <FormItem>
-                    <FormLabel className="my-2 text-xl">Họ và tên</FormLabel>
+                    <FormLabel className="my-2 text-lg font-semibold text-warning-foreground">Họ và tên</FormLabel>
                     <FormControl>
-                        <Input placeholder="Nguyễn Văn A" {...field} />
+                        <Input placeholder="Nguyễn Văn A" {...field} className="bg-white/10 border-white/20 text-warning-foreground placeholder:text-warning-foreground/40 rounded-xl focus-visible:ring-cyan-500" />
                     </FormControl>
                     <FormMessage />
                     </FormItem>
@@ -76,9 +76,9 @@ export function ContactForm() {
                 name="email"
                 render={({ field }) => (
                     <FormItem>
-                    <FormLabel className="my-2 text-xl">Email</FormLabel>
+                    <FormLabel className="my-2 text-lg font-semibold text-warning-foreground">Email</FormLabel>
                     <FormControl>
-                        <Input type="email" placeholder="email@example.com" {...field} />
+                        <Input type="email" placeholder="email@example.com" {...field} className="bg-white/10 border-white/20 text-warning-foreground placeholder:text-warning-foreground/40 rounded-xl focus-visible:ring-cyan-500" />
                     </FormControl>
                     <FormMessage />
                     </FormItem>
@@ -90,17 +90,17 @@ export function ContactForm() {
                 name="message"
                 render={({ field }) => (
                     <FormItem>
-                    <FormLabel className="my-2 text-xl">Tin nhắn</FormLabel>
+                    <FormLabel className="my-2 text-lg font-semibold text-warning-foreground">Tin nhắn</FormLabel>
                     <FormControl>
-                        <Textarea placeholder="Nhập nội dung bạn muốn liên hệ..." {...field} />
+                        <Textarea placeholder="Nhập nội dung bạn muốn liên hệ..." {...field} className="bg-white/10 border-white/20 text-warning-foreground placeholder:text-warning-foreground/40 rounded-xl min-h-[120px] focus-visible:ring-cyan-500" />
                     </FormControl>
                     <FormMessage />
                     </FormItem>
                 )}
                 />
-                <div className="flex flex-col items-center justify-center">
-                    <Button type="submit" className="py-5 bg-orange-600 hover:bg-orange-300 text-warning-foreground">Gửi liên hệ</Button>
-                    <p className="text-sm text-muted-foreground my-5">{status}</p>
+                <div className="flex flex-col items-center justify-center gap-3">
+                    <Button type="submit" className="w-full py-6 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-xl shadow-lg shadow-orange-600/30 transition-all duration-300 cursor-pointer">Gửi liên hệ</Button>
+                    {status && <p className="text-sm font-medium text-warning-foreground my-2">{status}</p>}
                 </div>
                 
             </form>
