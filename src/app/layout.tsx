@@ -1,32 +1,34 @@
-import Header from "@/components/header"
-import "./globals.css"
-import Footer from "@/components/footer"
-import { ThemeProvider } from "@/components/theme-provider"
-import GlowProvider from "@/components/glow-provider"
-import { Alex_Brush} from "next/font/google"
+import Header from "@/components/header";
+import "./globals.css";
+import Footer from "@/components/footer";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Be_Vietnam_Pro } from "next/font/google";
 
-// // Import Google Fonts đúng cách
-const alexBrush = Alex_Brush({
-  subsets: ['vietnamese'],
-  weight: "400",
-  variable: "--font-alex-brush",
+const beVietnamPro = Be_Vietnam_Pro({
+  subsets: ["vietnamese", "latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-be-vietnam-pro",
   display: "swap",
-})
+});
+
+export const metadata = {
+  title: "Kho Công Cụ Học Tập & Giảng Dạy - EdPortfolio",
+  description: "Kho phần mềm, công cụ học tập và giảng dạy miễn phí dành cho giáo viên và học sinh.",
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark" style={{ colorScheme: "dark" }} suppressHydrationWarning>
-      <body className={`${alexBrush.variable} min-h-screen antialiased flex flex-col bg-warning-gradient`}>
+    <html lang="vi" suppressHydrationWarning>
+      <body className={`${beVietnamPro.variable} font-sans min-h-screen antialiased flex flex-col bg-slate-50 text-slate-800`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
-          forcedTheme="dark"
+          defaultTheme="light"
+          enableSystem={false}
           disableTransitionOnChange
         >
-          <GlowProvider>
-            <Header />
-            <main className="flex-1 text-warning-foreground">{children}</main>
-            <Footer />
-          </GlowProvider>
+          <Header />
+          <main className="flex-1 w-full">{children}</main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

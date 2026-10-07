@@ -4,11 +4,11 @@ interface InformationProps {
 }
 export default function Information({ title, content }: InformationProps) {
   return (
-    <div className="flex flex-col gap-2 p-2">
-      <span className="text-3xl font-black uppercase tracking-wider text-cyan-400">
+    <div className="flex flex-col gap-1">
+      <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
         {title}
       </span>
-      <div className="text-2xl md:text-3xl font-bold text-white leading-relaxed break-words">
+      <div className="text-base sm:text-lg font-semibold text-slate-900 leading-snug break-words">
         {content}
       </div>
     </div>

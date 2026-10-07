@@ -95,30 +95,39 @@ const technologyInfo: Record<string, { content: string }> = {
 
 export default function Technology({ items }: TechnologyProps) {
   return (
-    <div className="flex flex-row flex-wrap gap-2.5">
+    <div className="flex flex-row flex-wrap gap-2">
       {items.map(({ icon, name }) => {
         const info = technologyInfo[name] || {
           content: "Chưa có thông tin chi tiết.",
-          pros: "-",
         };
 
         return (
           <Dialog key={name}>
             <form onSubmit={(e) => e.preventDefault()}>
               <DialogTrigger asChild>
-                <Button variant="outline" className="flex gap-2.5 items-center bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 rounded-2xl py-5 px-4 cursor-pointer">
-                  <span className="text-4xl">{icon}</span>
-                  <span className="text-2xl font-semibold">{name}</span>
+                <Button
+                  variant="outline"
+                  className="flex gap-2 items-center bg-white border border-slate-200 text-slate-800 hover:bg-blue-50/60 hover:border-blue-300 hover:text-blue-700 transition-all rounded-xl py-2 px-3 h-auto cursor-pointer shadow-2xs text-sm font-medium"
+                >
+                  <span className="text-lg">{icon}</span>
+                  <span>{name}</span>
                 </Button>
               </DialogTrigger>
-              <DialogContent className="sm:max-w-[425px] bg-slate-950 border border-white/10 text-white rounded-3xl backdrop-blur-xl">
+              <DialogContent className="sm:max-w-[425px] bg-white border border-slate-200 text-slate-800 rounded-2xl shadow-xl">
                 <DialogHeader>
-                  <DialogTitle className="text-2xl font-bold text-cyan-400">{name}</DialogTitle>
-                  <DialogDescription className="text-white/70 text-base leading-relaxed mt-2">{info.content}</DialogDescription>
+                  <DialogTitle className="text-xl font-bold text-blue-700 flex items-center gap-2">
+                    <span className="text-2xl">{icon}</span>
+                    {name}
+                  </DialogTitle>
+                  <DialogDescription className="text-slate-600 text-sm leading-relaxed mt-2 text-left">
+                    {info.content}
+                  </DialogDescription>
                 </DialogHeader>
                 <DialogFooter className="mt-4">
                   <DialogClose asChild>
-                    <Button variant="outline" className="bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-white/20 rounded-xl cursor-pointer">Đóng</Button>
+                    <Button variant="outline" className="rounded-lg cursor-pointer text-slate-700 border-slate-300">
+                      Đóng
+                    </Button>
                   </DialogClose>
                 </DialogFooter>
               </DialogContent>
